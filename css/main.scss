@@ -1,0 +1,358 @@
+
+
+
+.container0{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    //background-color: rgba(0,0,0,0.4);
+}
+
+.container{
+    width:100%;
+    height:100%; 
+    justify-content: center;
+    display: flex;
+    position:relative;
+}
+
+.container2{
+    width:100%;
+    height:100%; 
+    justify-content: center;
+    display: flex;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+.scroll {
+    position: absolute;
+    top: 80%; /* Move the top edge to the middle of the parent */
+    left: 50%; /* Move the left edge to the middle of the parent */
+    transform: translate(-50%, -50%); /* Shift the element back by 50% of its own width and height */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 10;
+}
+
+.mouse {
+    position: absolute;
+    margin-top: 20%;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: inline-flex;
+    width: 30px; /* Add width */
+    height: 60px; /* Add height */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.slide-ball {
+    display: inline-block;
+    width: 10px;
+    height: 10px; /* Fix height */
+    background-color: black;
+    border-radius: 50%;
+    margin: auto;
+    animation: move-ball 1s linear infinite;
+}
+
+@keyframes move-ball {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-1rem);
+    }
+}
+
+.firstpage{
+    margin-bottom: 20%;
+}
+
+.firstpage .typing-text-0{
+    font-size: 95px;
+    font-family: cursive;
+}
+.firstpage a{
+    font-size: 25px;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 15px 25px;
+}
+
+.background-clip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(8px); /* Glossy effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    color: black;
+    display: flex;
+    justify-content: space-between; /* Space between left and right */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Padding for space inside the header */
+    font-size: 18px; /* Font size for header */
+    font-weight: bold;
+    border-bottom: 2px solid #ccc; /* Line at the bottom */
+    z-index: 1000;
+    height: 80px; /* Default height */
+    transition: height 0.3s ease, padding 0.3s ease; /* Smooth transition */
+}
+
+header.collapsed {
+    height: 50px; /* Collapsed height */
+    padding: 5px 20px; /* Reduced padding */
+}
+
+.header-left a {
+    font-size: 24px; /* Home icon size */
+    text-decoration: none; /* Remove underline */
+    color: black; /* Icon color */
+}
+
+.header-center {
+    flex-grow: 1; /* Takes up available space */
+    text-align: center; /* Center the VG text */
+}
+
+.header-center h1 {
+    position: relative;
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* VG font size */
+    transition: font-size 0.3s ease; /* Smooth transition */
+    height: 100%; /* Ensure the h1 takes up the full height of the header */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header.collapsed .header-center h1 {
+    font-size: 18px; /* Smaller font size when collapsed */
+}
+
+.header-right {
+    margin-right: 30px; /* Adds space between "VG" and the contact button */
+}
+
+.header-right a {
+    font-size: 13px; /* Contact button text size */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Padding for the button */
+    background-color: #0071e3; /* Button background */
+    border-radius: 980px; /* Rounded */
+    transition: background-color 0.3s; /* Smooth hover effect */
+    border: 2px solid #0071e3;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.header-right a:hover {
+    background-color: transparent;
+    border: 2px solid #0071e3; /* Button hover effect */
+    padding: 10px 20px;
+    color: black;
+}
+
+
+body {
+    padding-top: 80px; /* Adjusted for header height */
+    margin: 0;
+    height: 100vh;
+    cursor: none;  
+    background: white;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    transition-timing-function: ease-out;
+    pointer-events: none; /* Ensures it doesn’t interfere with clicks */
+    z-index: 2000; /* Higher than the header */
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid brown;
+}
+
+.full-name, .short-name {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Precise centering */
+    transition: opacity 0.3s ease; /* Smooth fade transition */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.short-name {
+    opacity: 0; /* Initially hidden */
+}
+
+.profile-image-container {
+    width: 300px; /* Adjust the width of the image container */
+    height: 300px; /* Adjust the height of the image container */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.profile-image {
+    width: 100%; /* Image takes up full width of the box */
+    height: 100%; /* Image takes up full height of the box */
+    object-fit: cover; /* Ensures the image covers the box while maintaining aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners for the image */
+}
+
+
+.profile-intro-container {
+    display: flex;
+    align-items: center; /* Vertically center the profile image and intro */
+    justify-content: flex-start; /* Align the elements at the start */
+    gap: 30px; /* Space between the image and intro */
+    padding: 20px;
+}
+
+.intro {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+    min-width: 150px;
+}
+
+.fixed-text {
+    color: black; /* Fixed "I'm" text */
+}
+.typing-container {
+    display: inline-block;
+}
+
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    color: red; /* Animated text color */
+}
+
+
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes backspace {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.settings-icon img {
+    width:120px;
+    height: 120px;
+}
+
+.autoRotate{
+    animation: autoRotateAnimation;
+    animation-timeline: view();
+}
+@keyframes autoRotateAnimation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+.autoShow{
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+
+}
+@keyframes autoShowAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.projects{
+    display: flex;
+    flex-direction: column; /* This will stack the h1 elements vertically */
+    gap: 10px;
+}
+
+
+.autoBLur{
+    animation: autoBLurAnimation linear both;
+    animation-timeline: view();
+}
+@keyframes autoBLurAnimation{
+    0%{
+        filter: blur(40px);
+    }
+    45%, 55%{
+        filter: blur(0px);
+    }
+    100%{
+        filter: blur(40px);
+    }
+}
+
+
